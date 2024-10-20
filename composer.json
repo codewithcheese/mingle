@@ -1,7 +1,7 @@
 {
     "name": "ijpatricio/mingle",
     "type": "library",
-    "description": "Use Vue and React in Laravel Livewire Applications.",
+    "description": "Use Vue, React and Svelte in Laravel Livewire Applications.",
     "keywords": [
         "laravel",
         "livewire",

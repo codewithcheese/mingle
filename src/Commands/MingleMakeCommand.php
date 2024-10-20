@@ -23,7 +23,7 @@ class MingleMakeCommand extends GeneratorCommand
      *
      */
     protected $signature = 'make:mingle
-        {framework : The JavaScript framework to be used (react,vue)}
+        {framework : The JavaScript framework to be used (react,vue,svelte)}
         {name : The Mingle class name}
         {--jsfile= : The file path to the JS component, relative to `resources/js`}
         {--force : Create the class even if the mingle already exists}
@@ -208,12 +208,14 @@ class MingleMakeCommand extends GeneratorCommand
             return match ($framework) {
                 'vue' => $path->replace('index.js', "$basename.vue"),
                 'react' => $path->replace('index.js', "$basename.jsx"),
+                'svelte' => $path->replace('index.js', "$basename.svelte"),
             };
         }
 
         return match ($framework) {
             'vue' => $path->replace('.js', '.vue'),
             'react' => $path->replace('.js', '.jsx'),
+            'svelte' => $path->replace('.js', '.svelte'),
         };
     }
 
@@ -233,6 +235,10 @@ class MingleMakeCommand extends GeneratorCommand
                 $this->files->get(__DIR__ . '/../../resources/stubs/mingle.react-component.stub')
             )->replace('{{ $basename }}', $basename),
 
+            'svelte' => str(
+                $this->files->get(__DIR__ . '/../../resources/stubs/mingle.svelte-component.stub')
+            )->replace('{{ $basename }}', $basename),
+
         };
     }
 
@@ -248,10 +254,12 @@ class MingleMakeCommand extends GeneratorCommand
             '{{ $componentFile }}' => match ($framework) {
                 'vue' => $basename . '.vue',
                 'react' => $basename . '.jsx',
+                'svelte' => $basename . '.svelte',
             },
             '{{ $mingleFrameworkImport }}' => match ($framework) {
                 'vue' => '@mingle/mingleVue',
                 'react' => '@mingle/mingleReact',
+                'svelte' => '@mingle/mingleSvelte',
             },
         ];
 
@@ -312,6 +320,7 @@ class MingleMakeCommand extends GeneratorCommand
                 options: [
                     'vue' => 'Vue',
                     'react' => 'React',
+                    'svelte' => 'Svelte',
                 ],
             ),
         ];

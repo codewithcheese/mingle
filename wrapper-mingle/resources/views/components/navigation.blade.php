@@ -7,6 +7,7 @@
         'Livewire' => 'demo-with-livewire',
         'React' => 'demo-with-react',
         'Vue' => 'demo-with-vue',
+        'Svelte' => 'demo-with-svelte',
         'All combined' => 'demo-with-all',
         'Filament' => 'filament.demo.pages.dashboard',
         '↗ Docs' => 'https://minglejs.unitedbycode.com',

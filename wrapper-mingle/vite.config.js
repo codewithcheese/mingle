@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 import findMingles from './vendor/ijpatricio/mingle/resources/js/autoImport.js'
+import { svelte } from "@sveltejs/vite-plugin-svelte";
 const mingles = findMingles('resources/js')
 // Optional: Output the mingles to the console, for a visual check
 console.log('Auto-importing mingles:', mingles)
@@ -22,6 +23,7 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/react-counter/index.js',
                 'resources/js/vue-counter/index.js',
+                'resources/js/svelte-counter/index.js',
                 'resources/css/filament/demo/theme.css',
             ],
             refresh: [
@@ -39,5 +41,6 @@ export default defineConfig({
                 },
             },
         }),
+        svelte(),
     ],
 })

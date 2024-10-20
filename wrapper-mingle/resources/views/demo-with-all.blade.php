@@ -30,5 +30,8 @@
             @livewire(\App\Livewire\VueCounter::class)
         </div>
 
+        <div class="mt-20 bg-white shadow rounded-lg">
+            @livewire(\App\Livewire\SvelteCounter::class)
+        </div>
     </div>
 @endsection

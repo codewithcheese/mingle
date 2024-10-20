@@ -1,0 +1,17 @@
+<script>
+
+import Button from './Button.svelte'
+
+let { wire, mingleData } = $props();
+
+let message = $state(mingleData.message)
+
+props.wire.on('doubleIt', (randomString) => {
+    console.log('Double it! 😎', randomString)
+})
+
+</script>
+
+<div>
+    <!-- Build something great! -->
+</div>
